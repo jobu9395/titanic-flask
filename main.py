@@ -58,10 +58,12 @@ def predict():
         response = get_model_response(feature_dict)
     except ValueError as e:
         return {'error': str(e).split('\n')[-1].strip()}, 500
+    
+    # TODO set up validations for features the model expects, as well as feature types 
 
     return response, 200
 
 # assign the `clf` variable to the local model file that was created during training
 if __name__ == '__main__':
-    clf = joblib.load('model.pkl')
+    clf = joblib.load('model/model.pkl')
     app.run(debug=True)

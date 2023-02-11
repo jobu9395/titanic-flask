@@ -1,0 +1,13 @@
+name: titanic-flask
+
+dependencies:
+  - python=3
+  - pandas
+  - pip
+  - joblib
+  - Flask
+  - scikit-learn
+  - ipykernel
+
+  # - pip:
+    # - 
