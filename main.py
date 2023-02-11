@@ -1,7 +1,4 @@
-# Local imports
 import datetime
-
-# Third part imports
 from flask import Flask, request
 import pandas as pd
 import joblib
@@ -12,6 +9,8 @@ model_file = 'model.pkl'
 version = "v1.0.0"
 
 
+# helper method to receive the inference request as JSON, convert to df, then predict
+# the method then assigns the label variable to a more descriptive response
 def get_model_response(json_data):
     X = pd.DataFrame.from_dict(json_data)
     prediction = clf.predict(X)[0]
@@ -25,7 +24,10 @@ def get_model_response(json_data):
         'prediction': int(prediction)
     }
 
+
+# instantiate a Flask app
 app = Flask(__name__)
+
 
 @app.route('/info', methods=['GET'])
 def info():
@@ -59,7 +61,7 @@ def predict():
 
     return response, 200
 
-
+# assign the `clf` variable to the local model file that was created during training
 if __name__ == '__main__':
     clf = joblib.load('model.pkl')
     app.run(debug=True)
