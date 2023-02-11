@@ -44,4 +44,6 @@ curl -d '[
  -> predict OK
  ```
 
+ * It's worth noting, the model can handle unknown values for the "Sex" column, however, the numeric values must be numeric otherwise an error will result.  This is handled in the preprocessing portion of the app. 
+
 * Thanks for checking out the repo.  Feel free to fork and/or open up PRs.
