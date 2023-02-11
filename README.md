@@ -17,8 +17,6 @@ conda env update --prefix ./env --file environment.yml  --prune
 
 * First, execute the full notebook in `model/model,ipynb`.  This trains the random forest classifier model that will generate predictions on if a passenger survived.  Make sure your kernel is pointing to the right conda env.
 
-* V1 of this model uses numeric predictions only, and notably drops rows with any missing data, instead of imputing values.  There is tradeoffs to either approach, but the main purpose of this app is to show how to serve an ML app on Flask -- it's not focused on raw model performance.
-
 * Once the model is trained, a the following model file will be generated: `model/model.pkl`.  This file will be referenced in our Flask app for inference.
 
 * To test the app, execute the following:
@@ -29,7 +27,7 @@ python main.py
 * In a separate terminal window, you can hit the endpoint with the following command (this is also stored in the `sample-request.txt` file).
 ```
 curl -d '[
-    {"Pclass": "3", "Age": "22.0", "SibSp": "1", "Parch": "0", "Fare": "70"}
+    {"Pclass": "3", "Age": "22.0", "SibSp": "1", "Parch": "0", "Fare": "70", "Sex": "male"}
 ]' -H "Content-Type: application/json" \
      -X POST http://localhost:5000/predict && \
     echo -e "\n -> predict OK"

@@ -1,5 +1,13 @@
 curl -d '[
-    {"Pclass": "3", "Age": "22.0", "SibSp": "1", "Parch": "0", "Fare": "70"}
+    {"Pclass": "3", "Age": "22.0", "SibSp": "1", "Parch": "0", "Fare": "70", "Sex": "male"}
+]' -H "Content-Type: application/json" \
+     -X POST http://localhost:5000/predict && \
+    echo -e "\n -> predict OK"
+
+# example with an unexpected string value for "Sex" category
+
+curl -d '[
+    {"Pclass": "3", "Age": "22.0", "SibSp": "1", "Parch": "0", "Fare": "70", "Sex": "m"}
 ]' -H "Content-Type: application/json" \
      -X POST http://localhost:5000/predict && \
     echo -e "\n -> predict OK"
