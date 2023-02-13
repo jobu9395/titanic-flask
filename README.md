@@ -1,4 +1,4 @@
-* This is a simple repo showing how to serve an SKLearn ML model via Flask
+* This is a simple repo showing how to serve an SKLearn Preprocessor and XGBoost Classifier Pipeline ML model via Flask
 * To run this project, clone the repo
 * It is recommended to create a virtual environment using conda
 
@@ -15,7 +15,7 @@ conda env update --prefix ./env --file environment.yml  --prune
 
 * The current version of this repo has the data pre-installed in the `data/` subdirectory. 
 
-* First, execute the full notebook in `model/model,ipynb`.  This trains the random forest classifier model that will generate predictions on if a passenger survived.  Make sure your kernel is pointing to the right conda env.
+* First, execute the full notebook in `model/model,ipynb`.  This trains the XGBoost classifier model that will generate predictions on if a passenger survived.  Make sure your kernel is pointing to the right conda env.
 
 * Once the model is trained, a the following model file will be generated: `model/model.pkl`.  This file will be referenced in our Flask app for inference.
 
