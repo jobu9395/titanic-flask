@@ -25,6 +25,7 @@ python main.py
 ```
 
 * In a separate terminal window, you can hit the endpoint with the following command (this is also stored in the `sample-request.txt` file).
+* NOTE: If using a windows machine, it is advised to use a git bash terminal.  Windows terminal and command prompt does not work well with this request format.
 ```
 curl -d '[
     {"Pclass": "3", "Age": "22.0", "SibSp": "1", "Parch": "0", "Fare": "70", "Sex": "male"}
