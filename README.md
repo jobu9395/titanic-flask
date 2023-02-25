@@ -21,7 +21,7 @@ conda env update --prefix ./env --file environment.yml  --prune
 
 * To test the app, execute the following:
 ```
-python main.py
+python app.py
 ```
 
 * In a separate terminal window, you can hit the endpoint with the following command (this is also stored in the `sample-request.txt` file).
