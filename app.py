@@ -71,4 +71,4 @@ def index():
 # assign the `clf` variable to the local model file that was created during training
 if __name__ == '__main__':
     
-    app.run(debug=True)
+    app.run(debug=True, port=33507)
