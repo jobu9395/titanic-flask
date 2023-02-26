@@ -11,3 +11,5 @@ curl -d '[
 ]' -H "Content-Type: application/json" \
      -X POST http://localhost:5000/predict && \
     echo -e "\n -> predict OK"
+
+curl -d '[{"Pclass": "3", "Age": "22.0", "SibSp": "1", "Parch": "0", "Fare": "70", "Sex": "male"}]' -H "Content-Type: application/json" -X POST http://localhost:5000/predict && echo -e "\n -> predict OK"
