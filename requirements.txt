@@ -4,4 +4,3 @@ joblib
 xgboost
 flask
 joblib
-gunicorn

@@ -8,6 +8,7 @@ model_name = "Titanic survivability machine learning model"
 model_file = 'model.pkl'
 version = "v1.0.0"
 
+clf = joblib.load('model/model.pkl')
 
 # helper method to receive the inference request as JSON, convert to df, then predict
 # the method then assigns the label variable to a more descriptive response
@@ -27,6 +28,11 @@ def get_model_response(json_data):
 
 # instantiate a Flask app
 app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+
+    return "hello world"
 
 
 @app.route('/info', methods=['GET'])
@@ -65,5 +71,5 @@ def predict():
 
 # assign the `clf` variable to the local model file that was created during training
 if __name__ == '__main__':
-    clf = joblib.load('model/model.pkl')
+    
     app.run(debug=True)
