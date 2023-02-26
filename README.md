@@ -1,31 +1,41 @@
 * This is a simple repo showing how to serve an SKLearn Preprocessor and XGBoost Classifier Pipeline ML model via Flask
 * To run this project, clone the repo
-* It is recommended to create a virtual environment using conda
+* It is recommended to create a virtual environment using virtualenv
 
-* To create an environment with the necessary dependencies and then activate it, execute the following:
+* To create an environment with the necessary dependencies and then activate it, execute:
 ```
-conda env create -f environment.yml
-conda activate titanic-flask
+python -m virtualenv env
 ```
 
-* If you ever need to update the environment with a new dependency, execute the following:
+At the root of the project, execute:
 ```
-conda env update --prefix ./env --file environment.yml  --prune
+source env/bin/activate
+```
+
+Then, install dependencies.  
+```
+pip install -r requirements.txt
+```
+
+Depending on the service you deploy this app with, you might also want to execute:
+```
+pip freeze > requirements.txt
 ```
 
 * The current version of this repo has the data pre-installed in the `data/` subdirectory. 
 
-* First, execute the full notebook in `model/model,ipynb`.  This trains the XGBoost classifier model that will generate predictions on if a passenger survived.  Make sure your kernel is pointing to the right conda env.
+* First, execute the full notebook in `model/model.py`.  This trains the XGBoost classifier model that will generate predictions on if a passenger survived.  Make sure your kernel is pointing to the right conda env.
 
 * Once the model is trained, a the following model file will be generated: `model/model.pkl`.  This file will be referenced in our Flask app for inference.
 
-* To test the app, execute the following:
+* To test the app locally, execute the following:
 ```
 python app.py
 ```
 
 * In a separate terminal window, you can hit the endpoint with the following command (this is also stored in the `sample-request.txt` file).
 * NOTE: If using a windows machine, it is advised to use a git bash terminal.  Windows terminal and command prompt does not work well with this request format.
+
 ```
 curl -d '[
     {"Pclass": "3", "Age": "22.0", "SibSp": "1", "Parch": "0", "Fare": "70", "Sex": "male"}
